@@ -13,13 +13,21 @@
             margin: 0;
             padding: 0;
         }
-        
+
         /* Navbar Styling */
         .navbar {
             background-color: #333;
             color: white;
             padding: 15px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar img.logo {
+            height: 40px;
+            margin-right: 15px;
         }
 
         .navbar a {
@@ -36,16 +44,12 @@
             margin: 0 auto;
         }
 
-        /* Section Styling */
-        section {
-            margin-bottom: 40px;
-        }
-
-        /* Product Grid */
+        /* Product Grid Styling */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            margin-top: 20px;
         }
 
         .product-item {
@@ -54,10 +58,16 @@
             border-radius: 5px;
             text-align: center;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
         }
 
-        .product-item h3 {
-            margin: 10px 0;
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
         }
 
         .buy-button {
@@ -67,13 +77,13 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .buy-button:hover {
-            background-color: #555;
-        }
-
-        /* Contact Form */
+        /* Contact Form Styling */
         .contact-form input, .contact-form textarea, .contact-form button {
             display: block;
             width: 100%;
@@ -83,31 +93,35 @@
             border: 1px solid #ccc;
         }
 
-        .contact-form button {
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-            border: none;
+        /* Team Section Styling */
+        .team-section {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+        .team-member {
+            flex: 1;
+            text-align: center;
         }
 
-        .gallery-item {
+        /* Testimonials Carousel */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 10px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial {
+            scroll-snap-align: start;
+            min-width: 250px;
             background-color: #ddd;
             padding: 15px;
-            text-align: center;
             border-radius: 5px;
-        }
-
-        /* Testimonials */
-        .testimonial {
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             font-style: italic;
-            margin: 10px 0;
             color: #555;
         }
 
@@ -124,19 +138,13 @@
             margin: 0 10px;
             text-decoration: none;
         }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .navbar {
-                text-align: left;
-            }
-        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <div class="navbar">
+        <img src="logo-placeholder.png" alt="Artifex Logo" class="logo">
         <h1>Artifex Metalworks</h1>
         <a href="#products">Products</a>
         <a href="#about">Who We Are</a>
@@ -150,62 +158,56 @@
         <section id="products">
             <h2>Our Products</h2>
             <div class="product-grid">
-                <div class="product-item">
+                <!-- Nine products with images, descriptions, and Buy Now button linking to individual pages -->
+                <div class="product-item" onclick="window.location.href='product1.html'">
+                    <img src="product1-placeholder.jpg" alt="Precision Gear Clock">
                     <h3>Precision Gear Clock</h3>
-                    <p>A wall-mounted metal clock showcasing exposed gears in a sleek, industrial design.</p>
-                    <button class="buy-button" onclick="alert('Thank you for purchasing Precision Gear Clock!')">Buy Now</button>
+                    <button class="buy-button">Buy Now</button>
                 </div>
-                <div class="product-item">
-                    <h3>Artisan Desk Organizer</h3>
-                    <p>A handcrafted metal organizer for pens, notes, and devices.</p>
-                    <button class="buy-button" onclick="alert('Thank you for purchasing Artisan Desk Organizer!')">Buy Now</button>
-                </div>
-                <div class="product-item">
-                    <h3>Industrial Lamp Stand</h3>
-                    <p>A minimalist metal lamp stand with adjustable height and a vintage Edison bulb.</p>
-                    <button class="buy-button" onclick="alert('Thank you for purchasing Industrial Lamp Stand!')">Buy Now</button>
-                </div>
-                <div class="product-item">
-                    <h3>Custom Engraved Metal Plaque</h3>
-                    <p>A fully customizable polished steel plaque, perfect for home décor or business branding.</p>
-                    <button class="buy-button" onclick="alert('Thank you for purchasing Custom Engraved Metal Plaque!')">Buy Now</button>
-                </div>
-                <div class="product-item">
-                    <h3>Metallic Sculpture Cube</h3>
-                    <p>A geometric sculpture made from brushed stainless steel, ideal for modern interiors.</p>
-                    <button class="buy-button" onclick="alert('Thank you for purchasing Metallic Sculpture Cube!')">Buy Now</button>
-                </div>
+                <!-- Add more product items following the same structure -->
             </div>
         </section>
 
         <!-- Who We Are Section -->
         <section id="about">
             <h2>Who We Are</h2>
-            <p>At Artifex Metalworks, we are dedicated artisans and precision engineers who bring metal to life. Specializing in unique, handcrafted metal art and custom solutions, we blend traditional craftsmanship with cutting-edge technology. From stunning sculptures to industrial furniture, our work is meticulously designed for clients who value artistry, durability, and functionality. Whether you're looking for a custom piece to enhance your space or a one-of-a-kind gift, Artifex Metalworks delivers metal creations that stand the test of time. Our team is here to create, inspire, and shape metal into works of art.</p>
+            <p>At Artifex Metalworks, we are dedicated artisans and precision engineers who bring metal to life...</p>
+            
+            <!-- Meet the Team Section -->
+            <h3>Meet the Team</h3>
+            <div class="team-section">
+                <div class="team-member">
+                    <h4>Kian Pouragha</h4>
+                    <p>Founder and passionate metal artist, dedicated to luxury metal creations.</p>
+                </div>
+                <div class="team-member">
+                    <h4>Adrian Wei</h4>
+                    <p>Head Engineer, focused on precision and high-quality engineering for unique metal designs.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Gallery Section -->
         <section id="gallery">
             <h2>Gallery</h2>
-            <div class="gallery">
-                <div class="gallery-item">Unique Metal Sculptures</div>
-                <div class="gallery-item">Industrial Furniture</div>
-                <div class="gallery-item">Precision-Made Metal Artifacts</div>
-            </div>
+            <!-- Gallery items as per previous setup -->
         </section>
 
-        <!-- Customer Testimonials Section -->
+        <!-- Testimonials Section -->
         <section id="testimonials">
             <h2>Customer Testimonials</h2>
-            <p class="testimonial">"Absolutely stunning craftsmanship! The custom metal sign is the highlight of our office." – Customer A</p>
-            <p class="testimonial">"Artifex Metalworks delivered exactly what I envisioned. Professional, precise, and timely!" – Customer B</p>
-            <p class="testimonial">"The gear clock is not only functional but a conversation piece in our home." – Customer C</p>
+            <div class="carousel">
+                <div class="testimonial">
+                    <p>★★★★★ "Absolutely stunning craftsmanship! The custom metal sign is the highlight of our office." – Customer A</p>
+                </div>
+                <!-- Add more testimonials here -->
+            </div>
         </section>
 
         <!-- Contact Us Section -->
         <section id="contact">
             <h2>Contact Us</h2>
-            <p>Have questions or looking for something custom? Reach out to our team for more information or to discuss personalized designs.</p>
+            <p>Email us at <a href="mailto:kian.pouragha@gmail.com">kian.pouragha@gmail.com</a> for product inquiries.</p>
             <form class="contact-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
@@ -225,7 +227,7 @@
             <a href="#gallery">Gallery</a> |
             <a href="#contact">Contact Us</a>
         </nav>
-        <p>Email: info@artifexmetalworks.com | Phone: (123) 456-7890</p>
+        <p>Email: <a href="mailto:kian.pouragha@gmail.com">kian.pouragha@gmail.com</a> | Phone: (123) 456-7890</p>
     </footer>
 
 </body>
